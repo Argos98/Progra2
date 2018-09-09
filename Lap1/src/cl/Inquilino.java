@@ -21,7 +21,7 @@ public class Inquilino {
 
     private String telefono;
 
-    private String identificacion;
+   protected String identificacion;
 
     private String genero;
 

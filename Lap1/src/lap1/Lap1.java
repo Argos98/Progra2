@@ -89,28 +89,52 @@ public class Lap1 {
         String identificacion;
         String genero;
 
-        System.out.println("Digite el nombre del inquilino: ");
-        nombre = sc.next();
-
-        System.out.println("Digite los apellidos del inquilino: ");
-        apellidos = sc.next();
-
-        System.out.println("Digite el correo electronico del inquilino");
-        correo = sc.next();
-
-        System.out.println("Digite la dirrecion del inquilino");
-        direcciopn = sc.next();
-
-        System.out.println("Digite el telefono del inquilino");
-        telefono = sc.next();
+        int validacion = -4;
 
         System.out.println("Digite la identificacion del inquilino");
         identificacion = sc.next();
 
-        System.out.println("Digite el genero");
-        genero = sc.next();
+        validacion = cl.validarInquilinos(identificacion);
 
-        cl.registrarInquilino(nombre, apellidos, correo, direcciopn, telefono, identificacion, genero);
+        if (validacion == 1) {
+            System.out.println("Digite el nombre del inquilino: ");
+
+            nombre = sc.next();
+
+            System.out.println("Digite los apellidos del inquilino: ");
+            apellidos = sc.next();
+
+            System.out.println("Digite el correo electronico del inquilino");
+            correo = sc.next();
+
+            System.out.println("Digite la dirrecion del inquilino");
+            direcciopn = sc.next();
+
+            System.out.println("Digite el telefono del inquilino");
+            telefono = sc.next();
+
+            System.out.println("Digite el genero");
+            genero = sc.next();
+
+            cl.registrarInquilino(nombre, apellidos, correo, direcciopn, telefono, identificacion, genero);
+        } else {
+
+            if (validacion == 2) {
+
+                System.out.println("**************************************************");
+                System.out.println("    Esta identificaicon ya existe diguite otra");
+                System.out.println("**************************************************");
+
+                System.out.println();
+
+                String confirmacion;
+                System.out.println("Escriba OK para continuar: ");
+                confirmacion = sc.next();
+                System.out.println("");
+                  
+              
+            }
+        }
 
     }
 
@@ -158,7 +182,7 @@ public class Lap1 {
         cl.registrarPropiedad(codigo, nombre, valor, direccion, residencial, numeroCasa, patio, numeroHabitaciones);
 
     }
-    
+
     static void listarPropiedades() {
         for (String var : cl.getPropiedades()) {
             System.out.println(var.toString());
