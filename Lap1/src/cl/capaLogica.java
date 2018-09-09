@@ -48,19 +48,34 @@ public class capaLogica {
         }
         return infoPropiedades;
     }
-    
-     public int validarInquilinos(String identificacion) {
+
+    public int validarInquilinos(String identificacion) {
         int condiencia = 1;
 
         for (int cont = 0; cont < inquilinos.size(); cont++) {
             Inquilino lista[] = new Inquilino[inquilinos.size()];
             inquilinos.toArray(lista);
             if (lista[cont].identificacion.equals(identificacion)) {
-            condiencia= 2;
+                condiencia = 2;
             } else {
             }
         }
-      
+
+        return condiencia;
+    }
+
+    public int validarPropiedades(String codigo) {
+        int condiencia = 1;
+
+        for (int cont = 0; cont < propiedades.size(); cont++) {
+            Propiedad lista[] = new Propiedad[propiedades.size()];
+            propiedades.toArray(lista);
+            if (lista[cont].codigo.equals(codigo)) {
+                condiencia = 2;
+            } else {
+            }
+        }
+
         return condiencia;
     }
 

@@ -4,7 +4,7 @@ import cl.capaLogica;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class Lap1 {
+public class UI {
 
     static capaLogica cl = new capaLogica();
     static Scanner sc = new Scanner(System.in);
@@ -104,16 +104,16 @@ public class Lap1 {
             System.out.println("Digite los apellidos del inquilino: ");
             apellidos = sc.next();
 
-            System.out.println("Digite el correo electronico del inquilino");
+            System.out.println("Digite el correo electronico del inquilino: ");
             correo = sc.next();
 
-            System.out.println("Digite la dirrecion del inquilino");
+            System.out.println("Digite la dirrecion del inquilino: ");
             direcciopn = sc.next();
 
-            System.out.println("Digite el telefono del inquilino");
+            System.out.println("Digite el telefono del inquilino: ");
             telefono = sc.next();
 
-            System.out.println("Digite el genero");
+            System.out.println("Digite el genero: ");
             genero = sc.next();
 
             cl.registrarInquilino(nombre, apellidos, correo, direcciopn, telefono, identificacion, genero);
@@ -122,7 +122,8 @@ public class Lap1 {
             if (validacion == 2) {
 
                 System.out.println("**************************************************");
-                System.out.println("    Esta identificaicon ya existe diguite otra");
+                System.out.println("    Esta inquilino ya existe.");
+                System.out.println("    No se pudo registrar el al inquilino");
                 System.out.println("**************************************************");
 
                 System.out.println();
@@ -131,8 +132,7 @@ public class Lap1 {
                 System.out.println("Escriba OK para continuar: ");
                 confirmacion = sc.next();
                 System.out.println("");
-                  
-              
+
             }
         }
 
@@ -155,31 +155,54 @@ public class Lap1 {
         String patio;
         String numeroHabitaciones;
 
+        int validacion = -4;
+
         System.out.println("Digite un codigo para la Propiedad:");
         codigo = sc.next();
 
-        System.out.println("Digite un nombre para la Propiedad:");
-        nombre = sc.next();
+        validacion = cl.validarPropiedades(codigo);
 
-        System.out.println("Digite el valor de la Propiedad:");
-        valor = sc.next();
+        if (validacion == 1) {
 
-        System.out.println("Digite la direccion de la Propiedad:");
-        direccion = sc.next();
+            System.out.println("Digite un nombre para la Propiedad: ");
+            nombre = sc.next();
 
-        System.out.println("Digite el residencial donde se encuentra la Propiedad:");
-        residencial = sc.next();
+            System.out.println("Digite el valor de la Propiedad: ");
+            valor = sc.next();
 
-        System.out.println("Digite el numero de casa de la propiedad:");
-        numeroCasa = sc.next();
+            System.out.println("Digite la direccion de la Propiedad: ");
+            direccion = sc.next();
 
-        System.out.println("Digite si tiene patio o no la casa");
-        patio = sc.next();
+            System.out.println("Digite el residencial donde se encuentra la Propiedad: ");
+            residencial = sc.next();
 
-        System.out.println("Digite el nuemro de habitaciones totales de la Propiedad:");
-        numeroHabitaciones = sc.next();
+            System.out.println("Digite el numero de casa de la propiedad: ");
+            numeroCasa = sc.next();
 
-        cl.registrarPropiedad(codigo, nombre, valor, direccion, residencial, numeroCasa, patio, numeroHabitaciones);
+            System.out.println("Digite si tiene patio o no la casa: ");
+            patio = sc.next();
+
+            System.out.println("Digite el nuemro de habitaciones totales de la Propiedad: ");
+            numeroHabitaciones = sc.next();
+
+            cl.registrarPropiedad(codigo, nombre, valor, direccion, residencial, numeroCasa, patio, numeroHabitaciones);
+        } else {
+            if (validacion == 2) {
+
+                System.out.println("**************************************************");
+                System.out.println("    Esta esta propiedad ya existe.");
+                System.out.println("    No se pudo registrar el al inquilino");
+                System.out.println("**************************************************");
+
+                System.out.println();
+
+                String confirmacion;
+                System.out.println("Escriba OK para continuar: ");
+                confirmacion = sc.next();
+                System.out.println("");
+
+            }
+        }
 
     }
 

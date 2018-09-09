@@ -11,7 +11,7 @@ package cl;
  */
 public class Propiedad {
 
-    private String codigo;
+    protected String codigo;
     private String nombre;
     private String valor;
     private String direccion;
@@ -100,9 +100,8 @@ public class Propiedad {
 
     @Override
     public String toString() {
-        return "Propiedad" + "codigo=" + codigo + ", nombre=" + nombre + ", valor=" + valor + ", direccion=" + direccion + ", residencial=" + residencial + ", numeroCasa=" + numeroCasa + 
-                ", patio=" + patio + ", numeroHabitaciones=" + numeroHabitaciones ;
+        return "Propiedad" + "codigo=" + codigo + ", nombre=" + nombre + ", valor=" + valor + ", direccion=" + direccion + ", residencial=" + residencial + ", numeroCasa=" + numeroCasa
+                + ", patio=" + patio + ", numeroHabitaciones=" + numeroHabitaciones;
     }
-    
-    
+
 }
